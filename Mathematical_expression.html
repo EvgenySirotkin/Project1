@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title> Вычисление значений выражения </title>
+		<link rel="stylesheet" href="css\style.css">
+		<script language="JavaScript">
+			<!--
+			var s=""
+			function val(obj)
+			{ obj.m1.value=s; obj.res.value=eval(s)} // вызываем функцию eval
+			function valbut (c)
+			{s+=c; document.form3.m1.value=s}
+			//-->
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class = "flex">
+				<p><a class="pressed-button4" href="types_of_tasks.html">Назад</a></p>	
+				<p><a class="pressed-button4" href="main.html">Главная</a></p>
+			</div>		
+			<h2> Вычисление значений выражения </h2>
+			<i><h3> Введите выражение: </h3></i>
+			<table class = "my_form1" border=0 cellspacing=5 cellpadding=5>
+				<tr valign=top>
+					<td align=center>
+						<form name="form3">
+						<textarea name="m1" cols=30 rows=3></textarea>
+					</td>
+				</tr>
+				<tr valign=middle> 
+					<td>
+						<input class="kn2" type=button value=1 onClick="valbut('1')">
+						<input class="kn2" type=button value=2 onClick="valbut('2')">
+						<input class="kn2" type=button value=3 onClick="valbut('3')">
+						<input class="kn2" type=button value=4 onClick="valbut('4')">
+						<input class="kn2" type=button value=5 onClick="valbut('5')">
+						<input class="kn2" type=button value=6 onClick="valbut('6')">
+						<input class="kn2" type=button value=7 onClick="valbut('7')">
+						<input class="kn2" type=button value=8 onClick="valbut('8')">
+						<input class="kn2" type=button value=9 onClick="valbut('9')">
+						<input class="kn2" type=button value=0 onClick="valbut('0')">
+						<input class="kn2" type=button value=+ onClick="valbut('+')">
+						<input class="kn2" type=button value=- onClick="valbut('-')">
+						<input class="kn2" type=button value=* onClick="valbut('*')">
+						<input class="kn2" type=button value=/ onClick="valbut('/')">
+						<input class="kn2" type=button value=( onClick="valbut('(')">
+						<input class="kn2" type=button value=) onClick="valbut(')')"><br><br>
+						<input class = "kn1" type=button value=Вычислить onClick="val(form3)"><br><br>
+						<i class ="str1">Значение:</i> <input class = "str2" type=text name="res" size=20><br><br>
+						<input class = "kn1" type=reset value=Очистить onClick="s=''">
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>	
+	</body>
+</html>

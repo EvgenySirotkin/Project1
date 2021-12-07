@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title> Конвертер валют </title>
+        <link rel="stylesheet" href="css\style.css">
+        <!-- Подключаем JQUERY -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            // Для курсов валют
+            rates = {};
+            
+            // При загрузке документа
+            $(document).ready(function(){
+                // Загружаем курсы валют
+                $.ajax({
+                    // Откуда загружаем курсы валют
+                    url: 'http://jsonrates.com/get/?base=USD',
+                    // Запрос к стороннему домену
+                    crossDomain: true,
+                    dataType: 'jsonp',
+                    success: function(data){
+                        rates = data.rates;
+                    },
+                    error: function(){
+                        alert('Не удалось загрузить курсы валют. Перевод не будет работать.');
+                    }
+                });
+                
+                // При клике на кнопку "Вычислить"
+                $('#calculate').click(function(){
+                    var result, vfrom, vto, vcash;
+                    
+                    // Получаем сумму, которую нужно перевести
+                    vcash = $('#cash').val();
+                    vfrom = $('#from').val();
+                    vto   = $('#to').val();                
+ 
+                    // Заменяем в значении переводимой валюты одни символы на другие
+                    vcash = vcash.replace(',', '\.')
+                                 .replace(' ', '')
+                                 .replace(' ', '');
+                    
+                    // Вычисляем результат
+                    result = rates[vto] * vcash / rates[vfrom];
+                    
+                    // Переводим
+                    result = result.toFixed(2)
+                                   .toString()
+                                   .replace('\.', ',');
+ 
+                    result = '<span class="result">Результат перевода: ' + result + '&nbsp;' + vto + '</span>';
+ 
+                    // Выводим результат
+                    $('#result').html( result );
+                });
+            });
+            </script>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class = "flex">
+                <p><a class="pressed-button4" href="converters.html">Назад</a></p>  
+                <p><a class="pressed-button4" href="main.html">Главная</a></p>
+            </div>  
+            <form class = "my form2">
+                <i><label>Выберите исходную валюту:</label></i>
+                <select name="from" id="from">
+                    <option value="USD" selected="selected">Доллар США</option>
+                    <option value="EUR">Евро</option>
+                    <option value="RUB">Рубль</option>
+                </select>
+                <br/>
+                <br/>
+                <i><label>Введите сумму: </label></i>
+                <input name="cash" id="cash" class="is" type="text"/>
+                <br/>
+                <br/>
+                <i><label>Выберите расчетную валюту: </label></i>
+                <select name="to" id="to">
+                    <option value="USD">Доллар США</option>
+                    <option value="EUR" selected="selected">Евро</option>
+                    <option value="RUB">Рубль</option>
+                </select>
+                <br/>
+                <br/>
+                <input class = "kn" type=button value="Вычислить" id="calculate">
+                <br/>
+                <br/>
+                <label><span id="result" class="result"></span></label>
+            </form>
+         </div>    
+    </body>
+</html>

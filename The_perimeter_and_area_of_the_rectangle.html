@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title> Вычисление периметра и площади треугольника </title>
+		<link rel="stylesheet" href="css\style.css">
+		<script language="JavaScript"><!--
+			function pp (obj) // создаем функцию вычисления площади и периметра
+				{
+					var a=Number(obj.st1.value) // присваиваем преременной a значение 1-ой стороны
+					var b=Number(obj.st2.value) // присваиваем преременной b значение 2-ой стороны
+					var c=Number(obj.st3.value) // присваиваем преременной c значение 3-ей стороны
+					var s; p=a+b+c; // определяем переменную s, вычисляем периметр
+					document.writeln("Периметр треугольника равен ",p,"<br>"); // выводим значение периметра
+					p=p/2;//вычисляем полупериметр
+					s=Math.sqrt(p*(p-a)*(p-b)*(p-c)); // вычисляем площадь
+					document.write("Площадь треугольника равна ",s);
+				}
+			-->
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class = "flex">
+				<p><a class="pressed-button4" href="types_of_tasks.html">Назад</a></p>	
+				<p><a class="pressed-button4" href="main.html">Главная</a></p>
+			</div>	
+			<h2> Вычисление площади и периметра треугольника<br> по введенным значениям сторон.</h2>
+			<i><h3>Примечание: Полупериметр треугольника должен быть больше <br> его максимальной стороны, иначе площадь невозможно будет вычислить.</h3></i>
+			<form class = "my_form" name="form2">
+				<i class = "str">Сторона 1:</i> <input class = "text" type="text" size="7" name="st1"><br> <!-- текстовое поле - ввод значения стороны -->
+				<i class = "str">Сторона 2:</i> <input class = "text" type="text" size="7" name="st2"><br> <!-- текстовое поле - ввод значения стороны -->
+				<i class = "str">Сторона 3:</i> <input class = "text" type="text" size="7" name="st3"><br> <!-- текстовое поле - ввод значения стороны -->
+				<input class = "kn" type="button" value="Вычислить" onClick="pp(form2)"><br> <!-- кнопка "Вычислить" -->
+				<input class = "kn" type="reset" value=Отменить> <!-- кнопка "Отменить" -->
+			</form>
+		</div>
+	</body>
+</html>

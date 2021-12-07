@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title> Конвертер величин </title>
+    <link rel="stylesheet" href="css\style.css">
+    <script type="text/javascript">
+
+      <!--
+      var metrics = {
+        "mm" : 1,
+        "cm" : 10,
+        "m" : 1000,
+        "inch" : 25.4,
+        "foot" : 304.8
+      };
+      function convert(){
+        var val = document.getElementById("fromVal").value;
+        if(isNaN(val)){
+          return;
+        }  
+        document.getElementById("toVal").value = val *    
+          metrics[document.getElementById("fromSystem").value] / 
+          metrics[document.getElementById("toSystem").value];
+      }
+      var interval = null;
+      function watchChanges(){
+        interval == null ? setInterval("convert()", 500) : clearInterval(interval);
+      }  
+      //-->
+    </script>
+  </head>  
+  <body>
+    <div class="container">
+      <div class = "flex">
+        <p><a class="pressed-button4" href="converters.html">Назад</a></p>  
+        <p><a class="pressed-button4" href="main.html">Главная</a></p>
+      </div>  
+      <table class = "my_form2">
+        <tr>
+          <td>
+           <input class="str3" type="text" id="fromVal" style="width:80px" onfocus="watchChanges()" onblur="watchChanges()"/>
+          </td>
+          <td>
+            <select class="str4" id="fromSystem" onchange="convert()">
+              <option value="mm">миллиметров</option>
+              <option selected="selected" value="cm">сантиметров</option>
+              <option value="m">метров</option>
+              <option value="foot">футов</option>
+              <option value="inch">дюймов</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="str5" colspan="2">=</td>
+        </tr>
+        <tr>
+          <td><input class="str3" type="text" disabled="true" style="width:80px" id="toVal"/></td>
+          <td>
+            <select class="str4" id ="toSystem" onchange="convert()">
+              <option value="mm">миллиметры</option>
+              <option value="cm">сантиметры</option>
+              <option value="m">метры</option>
+              <option selected="selected" value="foot">футы</option>
+              <option value="inch">дюймы</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>  
+  </body>
+</html>

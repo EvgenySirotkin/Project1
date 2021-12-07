@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title> Площадь круга </title>
+		<link rel="stylesheet" href="css\style.css">
+		<script language="JavaScript">
+			function square (obj)  // создаем функцию вычисления площади
+				{
+					var a=obj.num.value // определяем переменную a - считываем значение из формы
+					var s //  определяем переменную s
+						{a=Number (a)
+							{s=3.14*a*a;obj.res.value=s}
+						}
+				}
+			</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class = "flex">
+				<p><a class="pressed-button4" href="types_of_tasks.html">Назад</a></p>	
+				<p><a class="pressed-button4" href="main.html">Главная</a></p>
+			</div>
+			<h2> Вычисление площади круга (по радиусу): </h2>
+				<form class = "my_form" name="form1">
+					<i><p class="str"> Введите размер (радиус круга ):</p></i>
+					<input class = "text" type ="text" name="num" size=10><br> <!-- текстовое поле - ввод значения стороны -->
+					<input class = "kn" type ="button" value="Площадь" onClick="square(form1)"><br><!-- кнопка "Площадь" -->
+					<input class = "text" type ="text" name="res" size=10><br> <!-- текстовое поле - вывод значения площади -->
+					<input class = "kn" type ="reset" value=Очистить> <!-- кнопка "Очистить" -->
+				</form> 
+
+			</div>
+	</body>
+	</html>
+	
